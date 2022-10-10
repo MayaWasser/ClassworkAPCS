@@ -3,7 +3,7 @@ public class arrayMethods{
   public static void main(String[] args){
     System.out.println("tests");
     int[] array1 = {1,2,3};
-    int[] array2 = {4,5,6};
+    int[] array2 = {4,5,6,7,8};
     System.out.println( aryToString(returnCopy(array1)) );
     System.out.println( array1 != returnCopy(array1) );
     System.out.println( aryToString(returnCopy(array2)) );
@@ -22,11 +22,12 @@ public class arrayMethods{
 
   public static int[] concatArray(int[]ary1, int[] ary2){
     int[] result = new int[ary1.length+ary2.length];
-    for (int i=0; i < ary1.length; i++){
-      result[i] = ary1[i];
-    }
-    for (int k=ary1.length; k < ary2.length; k++ ){
-      result[k] = ary2[k-ary1.length];
+    for (int i=0; i < ary1.length+ary2.length; i++){
+      if (i < ary1.length){
+        result[i] = ary1[i];
+      }else{
+        result[i] = ary2[i-ary1.length];
+      }
     }
     return result;
   }
@@ -37,7 +38,7 @@ public class arrayMethods{
       if (i == nums.length-1){
         result += nums[i];
       }else{
-        result += nums[i] + " ,";
+        result += nums[i] + ", ";
       }
     }
     return result + "}";
